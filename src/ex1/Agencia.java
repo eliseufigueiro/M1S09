@@ -12,9 +12,26 @@ public class Agencia {
         this.contas.add(c);
     }
 
-    public int getQuantidadeDeContas(){
+    public int getQuantidadeDeContas() {
 
         return this.contas.size();
+    }
+
+    public Conta buscarPorTitular(String nomeDoTitular) {
+
+        Conta cTitular = null;
+        for (Conta c : contas) {
+            if (c.getClienteTitular().getNomeDoTitular().equals(nomeDoTitular)) {
+                cTitular = c;
+                System.out.println(cTitular);
+            }
+        }
+
+        if (cTitular == null) {
+            System.out.println("Não há registros bancários para esse nome!");
+        }
+
+        return cTitular;
     }
 
     @Override

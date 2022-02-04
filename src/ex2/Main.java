@@ -1,16 +1,19 @@
-package ex1;
+package ex2;
 
-import ex2.Cliente;
+import ex1.Agencia;
+import ex1.ContaCorrente;
+import ex1.ContaPoupanca;
 
-import java.time.LocalDate;
+import javax.sound.midi.Soundbank;
 import java.util.Locale;
+import java.util.Scanner;
 
 public class Main {
-
 
     public static void main(String[] args) {
 
         Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
         Agencia agencia = new Agencia();
 
         agencia.adicionar(new ContaCorrente(new Cliente("Bob", "78945612345", "Rua XBA"), 4300.00));
@@ -21,5 +24,9 @@ public class Main {
         agencia.adicionar(new ContaPoupanca(new Cliente("Max", "78945612345", "Rua XBA"), 1500.00));
 
         System.out.println(agencia);
+
+        System.out.print("Digite o nome do Titular para buscar: ");
+        agencia.buscarPorTitular(sc.nextLine());
+
     }
 }

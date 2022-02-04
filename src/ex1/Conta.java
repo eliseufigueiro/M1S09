@@ -1,32 +1,32 @@
 package ex1;
 
+import ex2.Cliente;
+
 public abstract class Conta {
 
-    private static Integer numeroConta = 0;
+    private static Integer numeroConta = 1;
     private int idConta;
-    private String nome;
+    private Cliente clienteTitular;
     private Double saldo;
 
-    public Conta(String nome, Double saldo) {
-        this.nome = nome;
-        this.saldo = saldo;
+    public Conta(Cliente clienteTitular, Double saldo) {
         this.idConta = numeroConta++;
+        this.clienteTitular = clienteTitular;
+        this.saldo = saldo;
     }
 
     public static Integer getNumeroConta() {
         return numeroConta;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public Double getSaldo() {
+
         return saldo;
+    }
+
+    public Cliente getClienteTitular() {
+
+        return clienteTitular;
     }
 
     @Override
@@ -34,7 +34,7 @@ public abstract class Conta {
         return
                 " Conta: " + getClass().getSimpleName() + ", " +
                 " Número Conta: " + idConta + ", " +
-                " Nome: " + nome + ", " +
+                " Cliente: " + clienteTitular + ", " +
                 " Saldo: " + saldo +
                 "\n"
                 ;
